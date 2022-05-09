@@ -164,7 +164,7 @@
     box-shadow: 0 0 5px rgba(45, 45, 45, 0.5);
     background: white;
     border-radius: 10px;
-    position: absolute;
+    position: fixed;
     bottom: 15px;
     left: 0;
     right: 0;
@@ -249,7 +249,8 @@
 }
 
 .bookmark-card{
-    margin-top: 30px;
+    width: 95%;
+    margin: 20px auto;
 }
 .bookmark-item{
     width: 100%;
@@ -305,5 +306,8 @@
     }
     .footer{
         width: 95%;
+    }
+    .bookmark-btn{
+        margin-left: 2%;
     }
 }
