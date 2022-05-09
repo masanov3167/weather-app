@@ -249,8 +249,7 @@
 }
 
 .bookmark-card{
-    width: 95%;
-    margin: 20px auto;
+    width: 100%;
 }
 .bookmark-item{
     width: 100%;
@@ -303,6 +302,7 @@
 @media only screen and (max-width: 450px){
     .card{
         width: 95%;
+        margin: 0 auto;
     }
     .footer{
         width: 95%;
