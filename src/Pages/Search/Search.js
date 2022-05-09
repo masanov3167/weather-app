@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Context } from "../../Components/Context";
 import HomeItem from "../../Components/HomeItem";
+import SettingsItem from "../../Components/SettingsItem";
 
 
 import { BookmarkImg, HomeImg, SearchImg, SettingsImg } from '../../Components/Images';
@@ -9,7 +10,7 @@ const Search = () =>{
     const API_KEY = '54c7fc7849313c82d57effed6ba51fae';
     const val = React.useRef();
 
-    const {value, setValue, todos, setTodos} = React.useContext(Context);
+    const {value, setValue, todos, setTodos, lang, date,hours,weekDays} = React.useContext(Context);
 
     const addBookmark = (evt) =>{
         // const btnId = evt.target.dataset.getTitle - 0;
@@ -17,12 +18,12 @@ const Search = () =>{
         console.log(value.data.name);
 
           const newRegion = {
-              id: todos[todos.length - 1]?.id + 1 || 0,
+              id: todos.length,
               title: value.data.name,
           };
 
-          window.localStorage.setItem('todos', JSON.stringify([newRegion, ...todos]));
-          return setTodos([newRegion, ...todos]);
+          window.localStorage.setItem('todos', JSON.stringify([...todos, newRegion]));
+          return setTodos([...todos, newRegion]);
        
     }
 
@@ -43,14 +44,14 @@ const Search = () =>{
 
     return(
         <section className="search">
-            <h2 className="search-title">Shaharlar boshqaruvi</h2>
+            <h2 className="search-title">{SettingsItem[lang].cities}</h2>
 
             <form className="form" onSubmit={SearchFunc} autoComplete="off">
-                <input className="form-input" ref={val} type="text" name="cityName" maxLength="15" placeholder="Shahar nomini kiriting" required/>
-                <button className="form-btn" type="submit">Izlash</button>
+                <input className="form-input" ref={val} type="text" name="cityName" maxLength="15" placeholder={SettingsItem[lang].placeholder} required/>
+                <button className="form-btn" type="submit">{SettingsItem[lang].search}</button>
             </form>
 
-            <span className={value.isSearch ? "bookmark-btn" : "d-none"} title="add bookmark" onClick={addBookmark} ></span>
+            <span className={value.isSearch ? "bookmark-btn" : "d-none"} title={SettingsItem[lang].add} onClick={addBookmark} ></span>
             <div className='card-wrapper'>
 				{value.isSearch ? (
                     <>
@@ -58,16 +59,16 @@ const Search = () =>{
 					<HomeItem
 						title={value.data.name}
 						gradus={value.data.main.temp}
-						weekday="hgu"
-						hour="45"
-						pm='pm'
+						weekday={SettingsItem[lang].weekDaysArr[weekDays]}
+						hour={hours > 12 ? hours - 12 : hours}
+						pm={hours >12 ? "pm" : "am"}
 						info={value.data.weather[0].description}
                         pic={value.data.weather[0].id}
 					/>
                     
                     </>
 				) : (
-					<p>Searching...</p>
+                    <></>
 				)}
 			</div>
 

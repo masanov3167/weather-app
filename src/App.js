@@ -5,6 +5,7 @@ import "./Assets/main.css";
 import { Route, Routes } from "react-router-dom";
 import Search from "./Pages/Search/Search";
 import Bookmark from "./Pages/Bookmark/Bookmark";
+import Settings from "./Pages/Settings/Settings";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<Search />} />
         <Route path="/bookmark" element={<Bookmark />} />
+        <Route path="/settings" element={<Settings />} />
         <Route path="/*" element={<Home />} />
       </Routes>
     </main>

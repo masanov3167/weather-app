@@ -4,20 +4,15 @@ import { Context } from '../../Components/Context';
 import HomeItem from '../../Components/HomeItem';
 import { BookmarkImg, HomeImg, SearchImg, SettingsImg } from '../../Components/Images';
 import Loader from '../../Components/Loader';
+import SettingsItem from '../../Components/SettingsItem';
 
 const Home = () => {
 
 
-    const {todos, setTodos, count, setCount, value, setValue} = React.useContext(Context);
+    const {todos, setTodos, count, setCount, value, setValue, lang, date,hours,weekDays} = React.useContext(Context);
     
 	const API_KEY = '54c7fc7849313c82d57effed6ba51fae';
-    const [weekDayArr] = useState(["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]);
-	const date = new Date();
-	const hours = date.getHours();
-    const weekDays = date.getDay();
-
 	
-
     const leftFunc = ()=>{
         if(count >0){
             setCount(count - 1);
@@ -42,6 +37,10 @@ const Home = () => {
 		);
 	}, [count]);
 
+    if(value.isFetched){
+        console.log(value.data);
+    }
+
 	return (
 		<section className='home'>
 			<div className='home-header'>
@@ -60,9 +59,9 @@ const Home = () => {
 					<HomeItem
 						title={value.data.name}
 						gradus={value.data.main.temp}
-						weekday={weekDayArr[weekDays]}
-						hour={hours}
-						pm='pm'
+						weekday={SettingsItem[lang].weekDaysArr[weekDays]}
+						hour={hours > 12 ? hours - 12 : hours}
+						pm={hours >12 ? "pm" : "am"}
 						info={value.data.weather[0].description}
                         pic={value.data.weather[0].id}
 					/>

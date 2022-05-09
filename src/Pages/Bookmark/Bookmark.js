@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Context } from "../../Components/Context";
-
+import SettingsItem from "../../Components/SettingsItem";
 import BookmarkItem from "../../Components/BookmarkItem";
 import { BookmarkImg, HomeImg, SearchImg, SettingsImg } from "../../Components/Images";
 import HomeItem from "../../Components/HomeItem";
@@ -10,7 +10,7 @@ import HomeItem from "../../Components/HomeItem";
 
 const Bookmark = () =>{
     const API_KEY = '54c7fc7849313c82d57effed6ba51fae';
-    const {todos, setTodos, value, setValue} = React.useContext(Context);
+    const {todos, setTodos, value, setValue,lang, date,hours,weekDays} = React.useContext(Context);
 
     const getTitle = (evt) =>{
         const btnId = evt.target.dataset.getTitle - 0;
@@ -46,8 +46,8 @@ const Bookmark = () =>{
 
     return (
     <section className="bookmark">
-        <h2 className="bookmark-title">Sevimli shaharlar ro'yhati</h2>
-        <button className={value.isBookmark ? "back" : "d-none"}  onClick={back}>ortga</button>
+        <h2 className="bookmark-title">{SettingsItem[lang].bookmarkcities}</h2>
+        <button className={value.isBookmark ? "back" : "d-none"}  onClick={back}>{SettingsItem[lang].back}</button>
         <ol className="bookmark-card">
         {value.isBookmark ? (
                     <>
@@ -56,9 +56,9 @@ const Bookmark = () =>{
                     <HomeItem
 						title={value.data.name}
 						gradus={value.data.main.temp}
-						weekday="hgu"
-						hour="45"
-						pm='pm'
+						weekday={SettingsItem[lang].weekDaysArr[weekDays]}
+						hour={hours > 12 ? hours - 12 : hours}
+						pm={hours >12 ? "pm" : "am"}
 						info={value.data.weather[0].description}
                         pic={value.data.weather[0].id}
 					/>

@@ -1,9 +1,11 @@
-import { useEffect } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
+import { Context } from "./Context";
+import SettingsItem from "./SettingsItem";
 import {Images} from "./Images";
 
 const HomeItem = ({title, gradus, weekday, hour,pic, pm,info, minute}) =>{
-
+    const {lang} = React.useContext(Context);
 
     return(
         <div className="card">
@@ -16,7 +18,7 @@ const HomeItem = ({title, gradus, weekday, hour,pic, pm,info, minute}) =>{
             <span className="card-day">{weekday}, <time>{hour}:{minute} </time> {pm} </span>
             <span className="card-info">{info}</span>
 
-            <NavLink className="card-more" to="/more" >Wiew more</NavLink>
+            <NavLink className="card-more" to="/more" >{SettingsItem[lang].more}</NavLink>
         </div>
     )
 }

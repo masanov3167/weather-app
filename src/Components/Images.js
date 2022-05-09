@@ -21,8 +21,8 @@ const HomeImg = () => {
 					<path
 						d='M8.58124 17.6114H15.1624'
 						stroke='white'
-						stroke-linecap='round'
-						stroke-linejoin='round'
+						strokeLinecap='round'
+						strokeLinejoin='round'
 					/>
 				</g>
 				<defs>
@@ -33,8 +33,8 @@ const HomeImg = () => {
 						width='36'
 						height='36'
 						filterUnits='userSpaceOnUse'
-						color-interpolation-filters='sRGB'>
-						<feFlood flood-opacity='0' result='BackgroundImageFix' />
+						colorInterpolationFilters='sRGB'>
+						<feFlood floodOpacity='0' result='BackgroundImageFix' />
 						<feGaussianBlur in='BackgroundImage' stdDeviation='3' />
 						<feComposite
 							in2='SourceAlpha'
@@ -65,8 +65,8 @@ const SearchImg = () => {
 				xmlns='http://www.w3.org/2000/svg'>
 				<g filter='url(#filter0_b_0_233)'>
 					<path
-						fill-rule='evenodd'
-						clip-rule='evenodd'
+						fillRule='evenodd'
+						clipRule='evenodd'
 						d='M4.51188 5.51177C7.86084 2.16279 13.2908 2.16279 16.6399 5.51177C19.8002 8.67214 19.9783 13.6855 17.1742 17.0546L20.7683 20.6486C21.0773 20.9578 21.0773 21.4591 20.7683 21.7681C20.4591 22.0773 19.9578 22.0773 19.6486 21.7681L16.0546 18.1741C12.6855 20.9782 7.6723 20.8002 4.51188 17.6398C1.16279 14.2907 1.16279 8.86085 4.51188 5.51177ZM6.90382 8.69548C7.21302 8.38628 7.21302 7.88503 6.90382 7.57598C6.59462 7.26678 6.09338 7.26678 5.78419 7.57598C3.57515 9.78503 3.57515 13.3669 5.78419 15.576C6.09339 15.8852 6.59463 15.8852 6.90382 15.576C7.21301 15.2668 7.21302 14.7655 6.90382 14.4563C5.31303 12.8655 5.31303 10.2865 6.90382 8.69562V8.69548Z'
 						fill='currentColor'
 					/>
@@ -79,8 +79,8 @@ const SearchImg = () => {
 						width='64'
 						height='64'
 						filterUnits='userSpaceOnUse'
-						color-interpolation-filters='sRGB'>
-						<feFlood flood-opacity='0' result='BackgroundImageFix' />
+						colorInterpolationFilters='sRGB'>
+						<feFlood floodOpacity='0' result='BackgroundImageFix' />
 						<feGaussianBlur in='BackgroundImage' stdDeviation='10' />
 						<feComposite
 							in2='SourceAlpha'
@@ -111,8 +111,8 @@ const BookmarkImg = () => {
 				xmlns='http://www.w3.org/2000/svg'>
 				<g filter='url(#filter0_b_0_230)'>
 					<path
-						fill-rule='evenodd'
-						clip-rule='evenodd'
+						fillRule='evenodd'
+						clipRule='evenodd'
 						d='M5.00002 21.4058V5.37495C5.00002 4.74507 5.25023 4.14099 5.69562 3.69561C6.14101 3.25022 6.74509 3 7.37496 3H16.8747C17.5046 3 18.1087 3.25022 18.5541 3.69561C18.9995 4.14099 19.2497 4.74507 19.2497 5.37495V21.4058C19.2498 21.5089 19.223 21.6103 19.172 21.6999C19.121 21.7895 19.0476 21.8643 18.9589 21.9169C18.8702 21.9695 18.7694 21.9981 18.6663 21.9999C18.5632 22.0017 18.4614 21.9766 18.371 21.9271L12.1249 18.5191L5.87875 21.9271C5.78829 21.9766 5.68652 22.0017 5.58343 21.9999C5.48034 21.9981 5.37949 21.9695 5.29082 21.9169C5.20214 21.8643 5.1287 21.7895 5.07771 21.6999C5.02672 21.6103 4.99994 21.5089 5.00002 21.4058ZM9.74991 10.1248C9.59244 10.1248 9.44142 10.1874 9.33007 10.2987C9.21872 10.4101 9.15617 10.5611 9.15617 10.7186C9.15617 10.876 9.21872 11.0271 9.33007 11.1384C9.44142 11.2498 9.59244 11.3123 9.74991 11.3123H14.4998C14.6573 11.3123 14.8083 11.2498 14.9196 11.1384C15.031 11.0271 15.0935 10.876 15.0935 10.7186C15.0935 10.5611 15.031 10.4101 14.9196 10.2987C14.8083 10.1874 14.6573 10.1248 14.4998 10.1248H9.74991Z'
 						fill='currentColor'
 					/>
@@ -125,8 +125,8 @@ const BookmarkImg = () => {
 						width='64'
 						height='64'
 						filterUnits='userSpaceOnUse'
-						color-interpolation-filters='sRGB'>
-						<feFlood flood-opacity='0' result='BackgroundImageFix' />
+						colorInterpolationFilters='sRGB'>
+						<feFlood floodOpacity='0' result='BackgroundImageFix' />
 						<feGaussianBlur in='BackgroundImage' stdDeviation='10' />
 						<feComposite
 							in2='SourceAlpha'
@@ -162,8 +162,8 @@ const SettingsImg = () => {
 				<path
 					d='M10 17H15'
 					stroke='white'
-					stroke-linecap='round'
-					stroke-linejoin='round'
+					strokeLinecap='round'
+					strokeLinejoin='round'
 				/>
 			</g>
 			<defs>
@@ -174,8 +174,8 @@ const SettingsImg = () => {
 					width='64'
 					height='64'
 					filterUnits='userSpaceOnUse'
-					color-interpolation-filters='sRGB'>
-					<feFlood flood-opacity='0' result='BackgroundImageFix' />
+					colorInterpolationFilters='sRGB'>
+					<feFlood floodOpacity='0' result='BackgroundImageFix' />
 					<feGaussianBlur in='BackgroundImage' stdDeviation='10' />
 					<feComposite
 						in2='SourceAlpha'
