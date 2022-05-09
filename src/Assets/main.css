@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@500;600&display=swap');
 
 * {
 	box-sizing: border-box;
@@ -6,9 +7,19 @@
 	padding: 0;
 	font-family: 'Alegreya Sans', sans-serif;
 }
-
+::-webkit-scrollbar {
+    width: 7px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
 .main {
-	max-width: 850px;
+	max-width: 400px;
 	margin: 0 auto;
 }
 
@@ -66,8 +77,8 @@
 	margin-top: 30px;
 }
 .card {
-	max-width: 550px;
-	width: 60%;
+	max-width: 450px;
+	width: 100%;
 	height: 400px;
 	margin: 0 auto;
 	background: white;
@@ -79,7 +90,7 @@
 	flex-direction: column;
 }
 
-.card-img {
+.card >img, .card-img {
 	display: block;
 	width: 180px;
 	height: auto;
@@ -127,7 +138,7 @@
 	background: url(../Assets/img/left.png) no-repeat;
 	background-size: cover;
 	position: absolute;
-	margin-left: -30%;
+	margin-left: -230px;
 }
 .right {
 	width: 50px;
@@ -135,7 +146,7 @@
 	background: url(../Assets/img/right.png) no-repeat;
 	background-size: cover;
 	position: absolute;
-	margin-right: -30%;
+	margin-right: -230px;
 }
 .left:hover,
 .right:hover {
@@ -151,8 +162,9 @@
     display: flex;
     justify-content: space-between;
     box-shadow: 0 0 5px rgba(45, 45, 45, 0.5);
+    background: white;
     border-radius: 10px;
-    position: fixed;
+    position: absolute;
     bottom: 15px;
     left: 0;
     right: 0;
@@ -165,4 +177,105 @@
 
 .footer >a >svg:hover, .footer > .active >svg{
     color: #D86191;
+}
+
+/* search section styles  */
+
+.search{
+    width: 400px;
+    margin: 0 auto;
+}
+
+.search-title{
+    text-align: center;
+    margin: 15px auto;
+}
+
+.form{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.form-input{
+    width: 60%;
+    padding: 7px 15px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(45, 45, 45, 0.5);
+    font-family: 'Mulish', sans-serif;
+}
+
+.form-btn{
+    padding: 7px 15px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(45, 45, 45, 0.5);
+    font-family: 'Mulish', sans-serif;
+}
+
+.search > .card-wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.bookmark-btn{
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: url(../Assets/img/bookmark.png) no-repeat;
+    background-size: cover;
+    margin-top: 33px;
+}
+
+/* bookmark section styles  */
+.bookmark{
+    width: 100%;
+    margin: 0 auto;
+}
+.bookmark-title{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.back{
+    display: block;
+    margin: 5px auto;
+    padding: 2px 10px ;
+    border-radius: 0 5px 0 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.bookmark-card{
+    margin-top: 30px;
+}
+.bookmark-item{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.bookmark__title{
+    display: block;
+    width: 80%;
+    padding: 15px 5px;
+    background: #D86191;
+    color: white;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.bookmark-delete{
+    width: 48px;
+    height: 48px;
+    /* display: block; */
+    background: url(../Assets/img/delete.png) no-repeat;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.d-none{
+    display: none;
 }
