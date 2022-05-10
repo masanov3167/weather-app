@@ -250,9 +250,11 @@
 
 .bookmark-card{
     width: 100%;
+    margin-top: 20px;
 }
 .bookmark-item{
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
