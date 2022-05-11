@@ -211,7 +211,7 @@ function Images({ code }) {
 	if (code >= 500 && code <= 531) {
 		return (
 			<>
-				<img src={Drizzle} alt='card-img' />
+				<img className='card-img' src={Drizzle} alt='card-img' />
 			</>
 		);
 	}

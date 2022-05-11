@@ -6,17 +6,15 @@ import SettingsItem from "../../Components/SettingsItem";
 
 
 import { BookmarkImg, HomeImg, SearchImg, SettingsImg } from '../../Components/Images';
+import DailyWeather from "../../Components/Dailyweather";
+import Loader from "../../Components/Loader";
+import CurrentWeather from "../../Components/CurrentWeather";
 const Search = () =>{
-    const API_KEY = '54c7fc7849313c82d57effed6ba51fae';
     const val = React.useRef();
 
-    const {value, setValue, todos, setTodos, lang, date,hours,weekDays} = React.useContext(Context);
+    const {value, setValue, todos, setTodos, lang, hours,weekDays,API_KEY,getloc,display} = React.useContext(Context);
 
-    const addBookmark = (evt) =>{
-        // const btnId = evt.target.dataset.getTitle - 0;
-
-        console.log(value.data.name);
-
+    const addBookmark = () =>{
           const newRegion = {
               id: todos.length,
               title: value.data.name,
@@ -64,8 +62,8 @@ const Search = () =>{
 						pm={hours >12 ? "pm" : "am"}
 						info={value.data.weather[0].description}
                         pic={value.data.weather[0].id}
+                        getloc={getloc}
 					/>
-                    
                     </>
 				) : (
                     <></>
@@ -79,6 +77,38 @@ const Search = () =>{
                 <NavLink className="footer-bookmark" to="/bookmark" ><BookmarkImg /></NavLink>
                 <NavLink className="footer-settings" to="/settings" > <SettingsImg /></NavLink>
             </footer>
+
+
+            <div className={value.more ? 'more' : 'd-none'}>
+				<div className='currently'>
+					<span className='more-back' onClick={display}></span>
+
+					<div className='currently-card'>
+						{value.more ? (
+							<>
+								<CurrentWeather
+									title={value.data.timezone}
+									gradus={value.data.current.temp}
+									weekday={SettingsItem[lang].weekDaysArr[weekDays]}
+									hour={hours > 12 ? hours - 12 : hours}
+									pm={hours > 12 ? 'pm' : 'am'}
+									info={value.data.current.weather[0].description}
+									pic={value.data.current.weather[0].id}
+									pressure={value.data.current.pressure}
+									humidity={value.data.current.humidity}
+									win_speed={value.data.current.wind_speed}
+								/>
+
+								<ol className='daily-card'>
+               						 <DailyWeather  />
+								</ol>
+							</>
+						) : (
+							<Loader />
+						)}
+					</div>
+				</div>
+			</div>
         </section>
     )
 }

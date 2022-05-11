@@ -17,6 +17,8 @@ function App() {
         <Route path="/settings" element={<Settings />} />
         <Route path="/*" element={<Home />} />
       </Routes>
+
+
     </main>
   );
 }

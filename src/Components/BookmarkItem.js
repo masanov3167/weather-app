@@ -5,7 +5,7 @@ import { Context } from "./Context";
 
 
 const BookmarkItem = ({getTitle, del}) =>{
-    const {todos, setTodos} = React.useContext(Context);
+    const {todos} = React.useContext(Context);
 
     return (
         

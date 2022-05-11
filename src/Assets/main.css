@@ -294,6 +294,96 @@
     outline: none;
 }
 
+.more{
+    width: 100%;
+    height: 100vh;
+    /* position: absolute; */
+    left: 0;
+    top: 0;
+    position: fixed;
+    background: white;
+}
+.more > ::-webkit-scrollbar{
+   display: none;
+}
+.currently{
+    width: 400px;
+    height: 100vh;
+    overflow-y: auto;
+    margin: 0 auto;
+}
+
+.more-back{
+    width: 25px;
+    height: 25px;
+    background:  url(../Assets/img/more-back.png) no-repeat;
+    background-size: cover;
+    display: block;
+    margin: 10px 0;
+    position: fixed;
+}
+
+.currently-card{
+    width: 90%;
+	background: white;
+	border-radius: 10px;
+	box-shadow: 0 0 5px rgba(45, 45, 45, 0.5);
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+    margin: 40px 5px 20px auto;
+}
+
+.current-pressure, .current-humidity, .current-speed, .current-day{
+    font-weight: 700;
+	font-size: 20px;
+	color: #332821;
+    font-family: "Mulish", sans-serif;
+}
+
+.current-info{
+    padding: 6px 15px;
+	background: rgba(106, 117, 186, 0.5);
+	border-radius: 20px;
+    margin: 7px 0;
+}
+
+.daily-card{
+    width: 100%;
+    list-style: none;
+    border-top: 2px solid red;
+}
+
+.daily-card-item{
+    box-shadow: 0 0 5px rgba(45, 45, 45, 0.5);
+    margin: 15px;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+
+.daily-card-item >div{
+    display: flex;
+    justify-content: space-between;
+}
+.daily-card-item >div >img{
+    width: 130px;
+    height: 130px;
+}
+.weather-day{
+    font-size: 22px;
+    font-weight: 700;
+
+}
+
+.daily-card-item >span, .daily-card-item>time{
+    display: block;
+    font-family: 'Mulish', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+
+
 .d-none{
     display: none;
 }
