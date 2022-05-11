@@ -402,4 +402,8 @@
     .bookmark-btn{
         margin-left: 2%;
     }
+    .currently-card{
+        width: 85%;
+        margin: 50px 5px 60px auto ;
+    }
 }
