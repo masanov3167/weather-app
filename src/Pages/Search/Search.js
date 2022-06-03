@@ -9,6 +9,8 @@ import { BookmarkImg, HomeImg, SearchImg, SettingsImg } from '../../Components/I
 import DailyWeather from "../../Components/Dailyweather";
 import Loader from "../../Components/Loader";
 import CurrentWeather from "../../Components/CurrentWeather";
+import ServerError from "../../Components/ServerError";
+import SearchError from "../../Components/SearchError";
 const Search = () =>{
     const val = React.useRef();
 
@@ -20,24 +22,37 @@ const Search = () =>{
               title: value.data.name,
           };
 
-          window.localStorage.setItem('todos', JSON.stringify([...todos, newRegion]));
-          return setTodos([...todos, newRegion]);
-       
+		  const find = todos.find(a => a.title === newRegion.title);
+
+		  if(!todos.includes(find)){ 
+            window.localStorage.setItem('todos', JSON.stringify([...todos, newRegion]));
+            return setTodos([...todos, newRegion]);
+        }       
     }
+
 
     const SearchFunc = (evt)=>{
       evt.preventDefault();
-        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${val.current.value}&appid=${API_KEY}&units=metric`,)
-		.then((res) => res.json())
-		.then((data) =>
-			setValue({
-				isSearch: true,
-				data: data,
-				error: false,
-			}),
-		);
 
+	  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${val.current.value.trim()}&appid=${API_KEY}&units=metric`)
+			.then((res) => res.json())
+			.then((data) =>
+				setValue({
+					isSearch: true,
+					data: data,
+					searcherror: false,
+				}),
+			)
+
+			.catch(er =>{
+				setValue({
+					searcherror: true,
+					isSearch: false,
+				})
+			})
         val.current.value = null;
+
+		console.log(value.searcherror);
     }
 
     return(
@@ -49,9 +64,18 @@ const Search = () =>{
                 <button className="form-btn" type="submit">{SettingsItem[lang].search}</button>
             </form>
 
-            <span className={value.isSearch ? "bookmark-btn" : "d-none"} title={SettingsItem[lang].add} onClick={addBookmark} ></span>
+            <span className={value?.data?.name ? "bookmark-btn" : "d-none"} title={SettingsItem[lang].add} onClick={addBookmark} ></span>
             <div className='card-wrapper'>
-				{value.isSearch ? (
+
+			    {value.searcherror ? (
+					<>
+						<ServerError errorText={SettingsItem[lang].homeerror} />
+					</>
+				) : (
+					<></>
+				)}
+
+				{value.isSearch && (value.data.name ? (
                     <>
                     
 					<HomeItem
@@ -66,8 +90,10 @@ const Search = () =>{
 					/>
                     </>
 				) : (
-                    <></>
-				)}
+                    <>
+						<SearchError h2={SettingsItem[lang].searcherror.h2} p={SettingsItem[lang].searcherror.p} />
+					</>
+				))}
 			</div>
 
 

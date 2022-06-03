@@ -23,6 +23,7 @@ const TokenProvider = ({ children }) => {
         display:false,
 		data: {},
 		error: false,
+		searcherror: false,
 	});
 
     const getloc = () => {

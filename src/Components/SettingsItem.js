@@ -15,6 +15,11 @@ const SettingsItem = {
         morn: "Ertalab",
         day: "Kuni bo'yi",
         night: "Kechasi",
+        homeerror:"Server bilan ulanishda muammo birozdan so'ng qayta urining",
+        searcherror:{
+            h2:'0 ta natija topildi',
+            p:"Kechirasiz! Hech qanday natija topa olmadik."
+        },
         option:{
           uz:"O'zbekcha",
           ru:"Ruscha",
@@ -37,6 +42,11 @@ const SettingsItem = {
         morn: "Утром",
         day: "В течение дня",
         night: "Ночью",
+        homeerror:"Проблема с подключением к серверу, повторите попытку через некоторое время",
+        searcherror:{
+            h2:'0 результатов найдено',
+            p:"Извиняюсь! Мы не смогли найти никаких результатов."
+        },
         option:{
             uz:"Узбекский",
             ru:"Русский",
@@ -59,6 +69,11 @@ const SettingsItem = {
         morn: "In the morning",
         day: "During the day",
         night: "At night",
+        homeerror:"Server bilan ulanishda muammo birozdan so'ng qayta urining",
+        searcherror:{
+            h2:'0 results found',
+            p:"Sorry! We couldn't find any results."
+        },
         option:{
             uz:"Uzbek",
             ru:"Russian",

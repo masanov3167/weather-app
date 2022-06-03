@@ -12,6 +12,7 @@ import {
 import Loader from '../../Components/Loader';
 import SettingsItem from '../../Components/SettingsItem';
 import DailyWeather from '../../Components/Dailyweather';
+import ServerError from '../../Components/ServerError';
 
 const Home = () => {
 	const {
@@ -42,11 +43,7 @@ const Home = () => {
 	};
 
 	useEffect(() => {
-		fetch(
-			`https://api.openweathermap.org/data/2.5/weather?q=${
-				todos[count]?.title || 'tashkent'
-			}&appid=${API_KEY}&units=metric`,
-		)
+		fetch(`https://api.openweathermap.org/data/2.5/weather?q=${todos[count]?.title || 'tashkent'}&appid=${API_KEY}&units=metric`)
 			.then((res) => res.json())
 			.then((data) =>
 				setValue({
@@ -54,7 +51,15 @@ const Home = () => {
 					data: data,
 					error: false,
 				}),
-			);
+			)
+
+			.catch(er =>{
+				setValue({
+					error:true,
+					isFetched:false,
+				})
+			})
+		
 	}, [count]);
 
 	
@@ -72,6 +77,11 @@ const Home = () => {
 			</div>
 
 			<div className='card-wrapper'>
+			{value.error ? (
+					<ServerError errorText={SettingsItem[lang].homeerror} />
+				) : (
+					<></>
+				)}
 				{value.isFetched ? (
 					<>
 						<HomeItem
@@ -92,7 +102,7 @@ const Home = () => {
 							onClick={rightFunc}></span>
 					</>
 				) : (
-					<Loader />
+					<img className={value.isFetched ? "loader-img" : "d-none"} src="https://i.gifer.com/origin/b4/b4d657e7ef262b88eb5f7ac021edda87.gif" alt="loader" />
 				)}
 			</div>
 
