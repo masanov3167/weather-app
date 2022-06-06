@@ -280,13 +280,6 @@
     font-family: 'Mulish', sans-serif;
   }
 
-  @keyframes bookmarksAnim{
-    0% {transform: rotate(0deg);}
-    25% {transform: rotate(30deg);}
-    50% {transform: rotate(0deg);}
-    75% {transform: rotate(-30deg);}
-    100% {transform: rotate(0deg);}
-  }
 .search{
     width: 100%;
     margin: 0 auto;
@@ -333,7 +326,10 @@
     background: url(../Assets/img/bookmark.png) no-repeat;
     background-size: cover;
     margin-top: 33px;
-    animation: bookmarksAnim 2s linear infinite;
+}
+
+.bookmark-btn:active{
+    transform: scale(1.3);
 }
 
 /* bookmark section styles  */
