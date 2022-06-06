@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Context } from '../../Components/Context';
-import CurrentWeather from '../../Components/CurrentWeather';
 import HomeItem from '../../Components/HomeItem';
 import {
 	BookmarkImg,
@@ -9,9 +8,7 @@ import {
 	SearchImg,
 	SettingsImg,
 } from '../../Components/Images';
-import Loader from '../../Components/Loader';
 import SettingsItem from '../../Components/SettingsItem';
-import DailyWeather from '../../Components/Dailyweather';
 import ServerError from '../../Components/ServerError';
 
 const Home = () => {
@@ -24,9 +21,7 @@ const Home = () => {
 		lang,
 		hours,
 		weekDays,
-		API_KEY,
-		getloc,
-		display,
+		API_KEY
 	} = React.useContext(Context);
 
 
@@ -92,17 +87,13 @@ const Home = () => {
 							pm={hours > 12 ? 'pm' : 'am'}
 							info={value.data.weather[0].description}
 							pic={value.data.weather[0].id}
-							getloc={getloc}
+							getLocation={`/more/${value.data.coord.lat}${value.data.coord.lon}`}
 						/>
-						<span
-							className={count >= 1 ? 'left' : ''}
-							onClick={leftFunc}></span>
-						<span
-							className={count >= todos.length - 1 ? '' : 'right'}
-							onClick={rightFunc}></span>
+						<span className={count >= 1 ? 'left' : ''} onClick={leftFunc}></span>
+						<span className={count >= todos.length - 1 ? '' : 'right'} onClick={rightFunc}></span>
 					</>
 				) : (
-					<img className={value.isFetched ? "loader-img" : "d-none"} src="https://i.gifer.com/origin/b4/b4d657e7ef262b88eb5f7ac021edda87.gif" alt="loader" />
+					<img className={value.isFetched ? "d-none" : "loader-img"} src="https://i.gifer.com/origin/b4/b4d657e7ef262b88eb5f7ac021edda87.gif" alt="loader" />
 				)}
 			</div>
 
@@ -121,37 +112,6 @@ const Home = () => {
 					<SettingsImg />
 				</NavLink>
 			</footer>
-
-			<div className={value.more ? 'more' : 'd-none'}>
-				<div className='currently'>
-					<span className='more-back' onClick={display}></span>
-
-					<div className='currently-card'>
-						{value.more ? (
-							<>
-								<CurrentWeather
-									title={value.data.timezone}
-									gradus={value.data.current.temp}
-									weekday={SettingsItem[lang].weekDaysArr[weekDays]}
-									hour={hours > 12 ? hours - 12 : hours}
-									pm={hours > 12 ? 'pm' : 'am'}
-									info={value.data.current.weather[0].description}
-									pic={value.data.current.weather[0].id}
-									pressure={value.data.current.pressure}
-									humidity={value.data.current.humidity}
-									win_speed={value.data.current.wind_speed}
-								/>
-
-								<ol className='daily-card'>
-               						 <DailyWeather  />
-								</ol>
-							</>
-						) : (
-							<Loader />
-						)}
-					</div>
-				</div>
-			</div>
 		</section>
 	);
 };

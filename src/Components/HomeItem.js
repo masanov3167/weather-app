@@ -2,8 +2,9 @@ import React from "react";
 import { Context } from "./Context";
 import SettingsItem from "./SettingsItem";
 import {Images} from "./Images";
+import { NavLink } from "react-router-dom";
 
-const HomeItem = ({title, gradus, weekday, hour,pic, pm,info, minute,getloc}) =>{
+const HomeItem = ({title, gradus, weekday, hour,pic, pm,info, minute,getLocation}) =>{
     const {lang} = React.useContext(Context);
 
     return(
@@ -17,7 +18,7 @@ const HomeItem = ({title, gradus, weekday, hour,pic, pm,info, minute,getloc}) =>
             <span className="card-day">{weekday}, <time>{hour}:{minute} </time> {pm} </span>
             <span className="card-info">{info}</span>
 
-            <h2 className="card-more" onClick={getloc} >{SettingsItem[lang].more}</h2>
+            <NavLink className='card-more' to={getLocation}>{SettingsItem[lang].more}</NavLink>
         </div>
     )
 }

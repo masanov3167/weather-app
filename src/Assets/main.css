@@ -24,8 +24,9 @@
 }
 
 .loader-img {
-	width: 100px;
-	height: 100px;
+	width: 150px;
+	height: 150px;
+    margin: 20px auto !important;
 }
 
 /* home section styles  */
@@ -47,6 +48,7 @@
 	width: 100%;
 }
 .home-header {
+    width: 100%;
 	display: flex;
 	justify-content: space-between;
 	padding: 15px 40px;
@@ -377,7 +379,6 @@
 .bookmark-delete{
     width: 48px;
     height: 48px;
-    /* display: block; */
     background: url(../Assets/img/delete.png) no-repeat;
     background-size: cover;
     cursor: pointer;
@@ -401,62 +402,21 @@
 
 .more{
     width: 100%;
-    height: 100vh;
-    /* position: absolute; */
-    left: 0;
-    top: 0;
-    position: fixed;
     background: white;
-}
-.more > ::-webkit-scrollbar{
-   display: none;
-}
-.currently{
-    width: 400px;
-    height: 100vh;
-    overflow-y: auto;
-    margin: 0 auto;
-}
-
-.more-back{
-    width: 25px;
-    height: 25px;
-    background:  url(../Assets/img/more-back.png) no-repeat;
-    background-size: cover;
-    display: block;
-    margin: 10px 0;
-    position: fixed;
-}
-
-.currently-card{
-    width: 90%;
-	background: white;
-	border-radius: 10px;
-	box-shadow: 0 0 5px rgba(45, 45, 45, 0.5);
-	display: flex;
+    display: flex;
+	justify-content: center;
 	align-items: center;
-	flex-direction: column;
-    margin: 40px 5px 20px auto;
+    flex-direction: column;
 }
 
-.current-pressure, .current-humidity, .current-speed, .current-day{
-    font-weight: 700;
-	font-size: 20px;
-	color: #332821;
-    font-family: "Mulish", sans-serif;
+.more-date{
+    position: absolute;
+    margin-top: 20px;
 }
-
-.current-info{
-    padding: 6px 15px;
-	background: rgba(106, 117, 186, 0.5);
-	border-radius: 20px;
-    margin: 7px 0;
-}
-
 .daily-card{
     width: 100%;
     list-style: none;
-    border-top: 2px solid red;
+    margin-bottom: 100px;
 }
 
 .daily-card-item{

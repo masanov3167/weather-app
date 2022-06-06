@@ -5,7 +5,7 @@ import { Context } from "./Context";
 
 
 const DailyWeather = ({}) =>{
-    const {lang, value, kun} = React.useContext(Context);
+    const {lang, value, kun,sana} = React.useContext(Context);
 
     return(
 
@@ -14,6 +14,7 @@ const DailyWeather = ({}) =>{
                 
                 <div>
                 <span className="weather-day">{SettingsItem[lang].weekDaysArr[kun(item.dt)]}</span>
+                <h3 className="more-date" >{sana(item.dt)}</h3>
                 <Images code={item.weather[0].id}/>
                 </div>
                 <br />
